@@ -1,0 +1,17 @@
+<%= form_for @user do |f| %>
+    <%= render 'shared/error_messages',object: @user%>
+    <!--<form action="/users" class="new_user" id="new_user" method="post"> postリクエストを/usersに送信するフォーム-->
+    <%= f.label :name %>
+    <!--<label for="user_name">Name</label>-->
+    <%= f.text_field :name, class: 'form-control' %>
+    <!--<input type="text name="user[name]" id="user_name" kl_vkbd_parsed="true">-->
+    <%= f.label :email %>
+    <!--<label for="user_email">Email</label>-->
+    <%= f.email_field :email, class: 'form-control' %>
+    <!--<input type="email" name="user[email]" id="user_email" kl_vkbd_parsed="true">-->
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control'  %>
+    <%= f.label :password_confirmation%>
+    <%= f.password_field :password_confirmation, class: 'form-control' %>
+    <%= f.submit yield(:button_text), class: "btn btn-primary"%>
+<% end %>

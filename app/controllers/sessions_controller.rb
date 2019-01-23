@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   		log_in @user
       params[:session][:remember_me] == '1' ? remember(@user) : forget(@user)
   		remember @user
-  		redirect_to @user #redirect_to user_url(user)と同義, users/user.id
+  		redirect_back_or @user #redirect_to user_url(user)と同義, users/user.id
   	else
   		flash.now[:danger] = 'Invalid email/password combination'#nowは新規リクエストが来た時に消滅
   		render 'new'
